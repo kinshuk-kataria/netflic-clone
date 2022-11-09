@@ -1,0 +1,70 @@
+.register {
+  background-image: url('../../../assets/login_background.jpg');
+
+  color: #fff;
+  box-sizing: border-box;
+  padding: 1.3rem 1.6rem;
+
+  height: 100vh;
+}
+
+.register__header img {
+  width: 140px;
+}
+.register__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.register__btns button {
+  color: #fff;
+  background: #e50914;
+  padding: 7px 17px;
+  border-radius: 3px;
+  margin-left: 1rem;
+  border: 0;
+}
+
+.register__btns select {
+  border-radius: 3px;
+  color: #fff;
+  background: #00000066;
+  padding: 8px 22px;
+  border: 1px solid #aaa;
+  font-size: 0.875rem;
+}
+
+.register__content {
+  text-align: center;
+  padding: 75px 0;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.625rem;
+}
+
+.register__content h2 {
+  font-size: 26px;
+  margin: 16px 75px;
+}
+
+.register__content h3 {
+  font-size: 19.2px;
+  padding: 0 47px 20px;
+}
+
+.register__content input {
+  width: 85%;
+  padding: 20px 20px;
+  border-radius: 4px;
+  border: 0;
+}
+
+.register__content button {
+  background: #e50914;
+  margin: 4px 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #fff;
+  border: 0;
+}

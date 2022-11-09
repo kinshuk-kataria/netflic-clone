@@ -1,0 +1,94 @@
+.login {
+  color: #fff;
+  background-color: #000;
+  height: 100vh;
+  align-content: left;
+}
+
+.login__logo img {
+  max-width: 120px;
+}
+
+.login__body {
+  color: #333;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.login__content {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 20px 0 30px;
+  width: 100%;
+}
+
+.login__main {
+  flex-grow: 1;
+}
+
+.login__main h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.login__main input {
+  width: 100%;
+  background-color: #333;
+  height: 50px;
+  border: 0;
+  border-radius: 4px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.login__main button {
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  padding: 16px;
+  background: #e50914;
+  color: #fff;
+  margin: 24px 0 12px;
+  cursor: pointer;
+}
+
+.login__other {
+  font-weight: 400;
+  margin-top: 16px;
+  color: #737373;
+}
+
+.login__other a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.login__other p {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #8c8c8c;
+}
+
+@media only screen and (min-width: 740px) {
+  .login {
+    background-image: url('../../../assets/login_background.jpg');
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .login__body {
+    max-width: 450px;
+    background-color: transparent;
+  }
+  .login__content {
+    min-height: 85vh;
+    padding: 30px;
+  }
+}
