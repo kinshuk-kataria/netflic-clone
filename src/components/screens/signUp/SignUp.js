@@ -1,32 +1,34 @@
 import React from 'react'
-import './login.css'
-import { useRef } from 'react'
+import '../landingPage/landingPage.css'
 import logo from '../../../assets/Netflix_Logo.png'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { useRef } from 'react'
 import { auth } from '../../../firebase/firebaseConf'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-function Login() {
+function Signup() {
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
 
   const register = e => {
     e.preventDefault()
-    window.location = '/signup'
-  }
 
-  const signin = e => {
-    e.preventDefault()
-    signInWithEmailAndPassword(
+    createUserWithEmailAndPassword(
       auth,
       emailRef.current.value,
       passwordRef.current.value
     )
-      .then(userDetails => {
-        console.log(userDetails)
+      .then(userCred => {
+        console.log(userCred)
+        alert('Successfully signed up! Click yes to go to sign-in page')
+        window.location = '/login'
       })
       .catch(error => {
-        alert(error.message)
+        console.log(error.message)
       })
+  }
+
+  const signin = e => {
+    e.preventDefault()
   }
 
   return (
@@ -38,9 +40,9 @@ function Login() {
       <div className="login__body">
         <div className="login__content">
           <div className="login__main">
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
 
-            <form onSubmit={signin}>
+            <form onSubmit={register}>
               <input
                 className="login__input"
                 type="text"
@@ -58,14 +60,13 @@ function Login() {
                 required
               />
               <br />
-              <button type="submit">Sign In</button>
+              <button type="submit">Sign Up</button>
               <br />
             </form>
             <div className="login__other">
-              <span>New to netflix?</span>{' '}
-              <a href="/signup" onClick={register}>
-                Sign up now
-              </a>
+              <h4>
+                Go to <a href="/login">sign-in</a>
+              </h4>
               <p>
                 This page is protected by Google reCAPTCHA to ensure you're not
                 a bot.
@@ -78,4 +79,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Signup

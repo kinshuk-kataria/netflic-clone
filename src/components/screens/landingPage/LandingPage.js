@@ -1,9 +1,15 @@
 import React from 'react'
-import './signup.css'
+import './landingPage.css'
 import logo from '../../../assets/Netflix_Logo.png'
+import { useState } from 'react'
+import Login from '../login/Login'
 
-function Signup() {
-  return (
+function Signin() {
+  const [signin, setSignin] = useState(false)
+
+  return signin ? (
+    <Login />
+  ) : (
     <div className="register">
       <div className="register__header">
         <img src={logo} alt="logo" />
@@ -12,7 +18,14 @@ function Signup() {
             <option>English</option>
             <option>Hindi</option>
           </select>
-          <button> Sign in</button>
+          <button
+            onClick={() => {
+              setSignin(true)
+            }}
+          >
+            {' '}
+            Sign in
+          </button>
         </div>
       </div>
       <div className="register__content">
@@ -21,12 +34,13 @@ function Signup() {
         <h3>
           Ready to watch? Enter your email to create or restart your membership
         </h3>
-        <input type="text" placeholder="Email Address" />
-        <br />
-        <button>Get Started</button>
+
+        <input type="text" placeholder="Email Address" required />
+
+        <button onClick={() => setSignin(true)}>Get Started</button>
       </div>
     </div>
   )
 }
 
-export default Signup
+export default Signin

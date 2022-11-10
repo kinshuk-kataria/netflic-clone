@@ -24,6 +24,7 @@
   border-radius: 3px;
   margin-left: 1rem;
   border: 0;
+  cursor: pointer;
 }
 
 .register__btns select {
@@ -33,6 +34,7 @@
   padding: 8px 22px;
   border: 1px solid #aaa;
   font-size: 0.875rem;
+  cursor: pointer;
 }
 
 .register__content {
@@ -54,17 +56,18 @@
 }
 
 .register__content input {
-  width: 85%;
+  width: 40%;
   padding: 20px 20px;
-  border-radius: 4px;
+  border: none;
   border: 0;
+  outline: none;
 }
 
 .register__content button {
   background: #e50914;
   margin: 4px 0;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 20px 20px;
+  cursor: pointer;
   color: #fff;
   border: 0;
 }
