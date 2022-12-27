@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import './banner.css'
-import axios from '../../api/axios'
-import requests from '../../api/Requests'
+import React, { useEffect, useState } from 'react';
+import './banner.css';
+import axios from '../../api/axios';
+import requests from '../../api/Requests';
 
 function Banner() {
-  const [movie, setMovie] = useState([])
+  const [movie, setMovie] = useState([]);
 
-  function truncate(string, n) {
-    return string?.length > n ? string.substr(0, n - 1) + '...' : string
-  }
+  const truncate = (string, n) => {
+    return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+  };
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchTrending)
+      const request = await axios.get(requests.fetchTrending);
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length - 1)
         ]
-      )
-      return request
+      );
+      return request;
     }
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   return (
     <header
@@ -47,7 +47,7 @@ function Banner() {
       </div>
       <div className="banner__fadeBottom" />
     </header>
-  )
+  );
 }
 
-export default Banner
+export default Banner;

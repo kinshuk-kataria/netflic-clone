@@ -1,16 +1,16 @@
-import React from 'react'
-import '../landingPage/landingPage.css'
-import logo from '../../../assets/Netflix_Logo.png'
-import { useRef } from 'react'
-import { auth } from '../../../firebase/firebaseConf'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import React from 'react';
+import '../landingPage/landingPage.css';
+import logo from '../../../assets/Netflix_Logo.png';
+import { useRef } from 'react';
+import { auth } from '../../../firebase/firebaseConf';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
-function Signup() {
-  const emailRef = useRef(null)
-  const passwordRef = useRef(null)
+function Signup(props) {
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
 
   const register = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     createUserWithEmailAndPassword(
       auth,
@@ -18,18 +18,11 @@ function Signup() {
       passwordRef.current.value
     )
       .then(userCred => {
-        console.log(userCred)
-        alert('Successfully signed up! Click yes to go to sign-in page')
-        window.location = '/login'
+        alert('Successfully signed up! Click yes to go to sign-in page');
+        window.location = '/login';
       })
-      .catch(error => {
-        console.log(error.message)
-      })
-  }
-
-  const signin = e => {
-    e.preventDefault()
-  }
+      .catch(error => {});
+  };
 
   return (
     <div className="login">
@@ -65,7 +58,7 @@ function Signup() {
             </form>
             <div className="login__other">
               <h4>
-                Go to <a href="/login">sign-in</a>
+                Go to <span onClick={props.loginRegister}>sign-in</span>
               </h4>
               <p>
                 This page is protected by Google reCAPTCHA to ensure you're not
@@ -76,7 +69,7 @@ function Signup() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Signup
+export default Signup;

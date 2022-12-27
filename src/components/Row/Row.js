@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import './row.css'
-import axios from '../../api/axios'
+import React, { useEffect, useState } from 'react';
+import './row.css';
+import axios from '../../api/axios';
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
-  const [movies, setMovies] = useState([])
-
-  const base_url = 'https://image.tmdb.org/t/p/w500'
+  const [movies, setMovies] = useState([]);
+  const base_url = 'https://image.tmdb.org/t/p/w500';
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(fetchUrl)
-      setMovies(request.data.results)
-      return request
+      const request = await axios.get(fetchUrl);
+      setMovies(request.data.results);
+      return request;
     }
-    fetchData()
-  }, [fetchUrl])
-
-  console.log(movies)
+    fetchData();
+  }, [fetchUrl]);
 
   return (
     <div className="row">
@@ -39,7 +36,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Row
+export default Row;

@@ -1,9 +1,9 @@
-import React from 'react'
-import requests from '../../../api/Requests'
-import Banner from '../../banner/Banner'
-import Nav from '../../nav/Nav'
-import Row from '../../row/Row'
-import './home.css'
+import React from 'react';
+import requests from '../../../api/Requests';
+import Banner from '../../banner/Banner';
+import Nav from '../../nav/Nav';
+import Row from '../../row/Row';
+import './home.css';
 
 function Home() {
   return (
@@ -25,7 +25,7 @@ function Home() {
         <Row title={'Documentaries'} fetchUrl={requests.fetchDocumentaries} />
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -67,12 +67,12 @@
   color: #737373;
 }
 
-.login__other a {
+.login__other span {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
-.login__other a:hover {
+.login__other span:hover {
   text-decoration: underline;
 }
 

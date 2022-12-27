@@ -1,43 +1,51 @@
-import Home from './components/screens/home/Home'
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { useEffect } from 'react'
-import Login from './components/screens/login/Login'
-import Signin from './components/screens/landingPage/LandingPage'
-import SignUp from './components/screens/signUp/SignUp'
-import { auth } from './firebase/firebaseConf'
-import { onAuthStateChanged } from 'firebase/auth'
+import Home from './components/screens/home/Home';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+
+import { auth } from './firebase/firebaseConf';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout, selectuser } from './redux/features/user/userSlice';
+import Profile from './components/screens/profileScreen/Profile';
+import LandingPage from './components/screens/landingPage/LandingPage';
+import Login from './components/screens/login/Login';
 
 function App() {
-  const user = false
+  const user = useSelector(selectuser);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, userAuth => {
       if (userAuth) {
-        //Logged In
-        console.log(userAuth)
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email
+          })
+        );
       } else {
-        //Logged Out
-        console.log('empty')
+        dispatch(logout());
       }
-    })
-    return unsubscribe
-  }, [])
+    });
+    return unsubscribe;
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Signin />} />
-          <Route path="/home" element={<Home />} />
-
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-        </Routes>
-        )
-      </BrowserRouter>
+      {!user ? (
+        <LandingPage />
+      ) : (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+          </Routes>
+        </BrowserRouter>
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

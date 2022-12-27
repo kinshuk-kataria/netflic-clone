@@ -1,16 +1,15 @@
 .register {
   background-image: url('../../../assets/login_background.jpg');
-
   color: #fff;
   box-sizing: border-box;
   padding: 1.3rem 1.6rem;
-
   height: 100vh;
 }
 
 .register__header img {
   width: 140px;
 }
+
 .register__header {
   display: flex;
   align-items: center;
