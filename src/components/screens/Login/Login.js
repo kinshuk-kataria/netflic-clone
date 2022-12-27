@@ -7,6 +7,7 @@ import { auth } from '../../../firebase/firebaseConf';
 import { useState } from 'react';
 import Signup from '../signUp/SignUp';
 
+
 function Login() {
   const [signup, setSignup] = useState(false);
   const emailRef = useRef(null);
@@ -22,12 +23,9 @@ function Login() {
       auth,
       emailRef.current.value,
       passwordRef.current.value
-    )
-      .then(userDetails => {
-        console.log(userDetails);
-      })
-      .catch(error => {
-        alert(error.message);
+    )    
+      .catch(() => {
+        alert('Please enter valid credentials');
       });
   };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import './landingPage.css';
 import logo from '../../../assets/Netflix_Logo.png';
 import { useState } from 'react';
-import Login from '../login/Login';
+import Login from '../Login/Login';
 
 function LandingPage() {
   const [signin, setSignin] = useState(false);

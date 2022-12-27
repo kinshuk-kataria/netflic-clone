@@ -1,6 +1,6 @@
 import React from 'react';
 import './profile.css';
-import Nav from '../../nav/Nav';
+import Nav from '../../Nav/Nav';
 import avatar from '../../../assets/Netflix-avatar.png';
 import { useSelector } from 'react-redux';
 import { selectuser } from '../../../redux/features/user/userSlice';

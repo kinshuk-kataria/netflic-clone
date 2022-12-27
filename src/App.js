@@ -1,4 +1,4 @@
-import Home from './components/screens/home/Home';
+import Home from './components/screens/Home/Home';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectuser } from './redux/features/user/userSlice';
 import Profile from './components/screens/profileScreen/Profile';
 import LandingPage from './components/screens/landingPage/LandingPage';
-import Login from './components/screens/login/Login';
+import Login from './components/screens/Login/Login';
 
 function App() {
   const user = useSelector(selectuser);

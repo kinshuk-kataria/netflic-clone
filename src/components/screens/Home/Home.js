@@ -1,8 +1,8 @@
 import React from 'react';
 import requests from '../../../api/Requests';
-import Banner from '../../banner/Banner';
-import Nav from '../../nav/Nav';
-import Row from '../../row/Row';
+import Banner from '../../Banner/Banner';
+import Nav from '../../Nav/Nav';
+import Row from '../../Row/Row';
 import './home.css';
 
 function Home() {
